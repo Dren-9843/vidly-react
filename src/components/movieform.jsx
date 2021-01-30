@@ -40,7 +40,7 @@ class MovieForm extends Form{
         const {data: genres} = await getGenres();
         this.setState({ genres });
     }
-    async populateMovies() {
+    async populateMovie() {
         const movieId = this.props.match.params.id;
         if (movieId === "new") return;
         try {
@@ -67,8 +67,8 @@ class MovieForm extends Form{
     }
 
     
-    doSubmit = () => {
-        saveMovie(this.state.data);
+    doSubmit = async() => {
+        await saveMovie(this.state.data);
 
         this.props.history.push("/movies")
     }
@@ -82,7 +82,7 @@ class MovieForm extends Form{
 
         return ( 
             <div>
-                <h1>Add A Movie</h1>
+                <h1>Movie Form</h1>
                 <form onSubmit={this.handleSubmit}>
                     {this.renderInput("title", "Title")}
                     {this.renderSelect("genreId", "Genre", this.state.genres)}
