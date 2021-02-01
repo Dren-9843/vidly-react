@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import Input from './common/input';
-import Joi from 'joi-browser'
-import Form from './common/form'
+import React from 'react';
+import Joi from 'joi-browser';
+import Form from './common/form';
+import { login } from '../services/authService';
+import { toast } from 'react-toastify';
 
 class LoginForm extends Form{
     state = {
@@ -11,12 +12,21 @@ class LoginForm extends Form{
 
     schema = {
         username: Joi.string().required().label('Username'),
-        password: Joi.string().required().label('Password')
+        password: Joi.string().required().min(5).label('Password')
     }
 
     
-    doSubmit = () => {
-    console.log('Submitted')
+    doSubmit = async () => {
+        try {
+            const { data } = this.state
+            await login(data.username, data.password);
+        } catch (ex) {
+            if (ex.response && ex.response.status === 400) {
+                const errors = {...this.state.errors}
+                toast.error(ex.response.data)
+                this.setState({ errors })
+            }
+        }
     }
 
 
