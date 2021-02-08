@@ -1,28 +1,59 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import '../styles.css'
 
+const NavBar = ({ user }) => {
+  <React.Fragment>
+      <link rel="stylesheet" href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> </link>
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> 
+    </script> 
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> 
+    </script> 
+    <script src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> 
+    </script> 
+    </React.Fragment>
 
-const NavBar = () => {
     return ( 
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar" className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <Link className="navbar-brand" to="/movies">Magenta Box</Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button 
+    className="navbar-toggler" 
+    type="button" 
+    data-toggle="collapse" 
+    data-target="#navbarNavAltMarkup" 
+    aria-controls="navbarNavAltMarkup" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
+      <ul className="nav navbar-nav">
 
           <NavLink className="nav-link active" to="/movies">Movies</NavLink>
           <NavLink className="nav-link nav-item" to="/customers">Customers</NavLink>
   
           <NavLink className="nav-link nav-item" to="/rentals">Rentals</NavLink>
-
-          <NavLink className="nav-link nav-item" to="/login">
+      </ul>
+          <ul className="nav navbar-nav">
+          {!user && (<React.Fragment><NavLink className="nav-link nav-item" to="/login">
             Login
             </NavLink>
             <NavLink className="nav-link nav-item" to="/register">
             Register
             </NavLink>
+            </React.Fragment>)}
+            </ul>
+    <ul className="nav navbar-nav ml-auto">
+            {user && (<React.Fragment><NavLink className="nav-link nav-item" to="/profile">
+            {user.name}
+            </NavLink>
+            <NavLink className="nav-link nav-item" to="/logout">
+            Logout
+            </NavLink></React.Fragment>)}
       </ul>
     </div>
 </nav>

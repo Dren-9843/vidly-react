@@ -35,7 +35,7 @@ class Register extends Form{
             const errors = { ...this.state.errors };
             errors.username = ex.response.data;
             this.setState({ errors })
-        }
+      }
     }
     }
 
