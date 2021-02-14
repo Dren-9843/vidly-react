@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify'
-import jwtDecode from 'jwt-decode'
+import { getCurrentUser } from './services/authService';
 import Movies from './components/movies';
 import Customers from './components/customers';
 import Logout from './components/logOut';
@@ -19,14 +19,9 @@ import './App.css';
 class App extends Component {
   state = {};
 
-  componentDidMount() {
-    try {      
-      const jwt = localStorage.getItem("token")
-      const user = jwtDecode(jwt);
+  componentDidMount() {     
+      const user = getCurrentUser()
       this.setState({ user })
-    } catch (ex) {
-      
-    }
   }
   render() { 
     return (
