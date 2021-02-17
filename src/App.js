@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify'
-import { getCurrentUser } from './services/authService';
+import ReactTooltip from 'react-tooltip'
 import Movies from './components/movies';
 import Customers from './components/customers';
 import Logout from './components/logOut';
@@ -12,6 +12,7 @@ import NavBar from './components/navBar';
 import MovieForm from './components/movieForm';
 import Register from './components/registerForm';
 import LoginForm from "./components/loginForm";
+import { getCurrentUser } from './services/authService';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 
@@ -27,8 +28,9 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer/>
+        <ReactTooltip />
     <NavBar user={this.state.user}/>
-    <main className ="container">
+    <main className="container">
     <Switch>
       <Route path="/login" component={LoginForm}/>
       <Route path="/logout" component={Logout}/>

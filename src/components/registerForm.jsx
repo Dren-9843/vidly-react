@@ -1,5 +1,6 @@
 import React from 'react';
 // import Input from './common/input';
+import * as auth from '../services/authServices'
 import Joi from 'joi-browser'
 import Form from './common/form'
 import * as userService from '../services/userService'
@@ -28,7 +29,7 @@ class Register extends Form{
     doSubmit = async () => {
         try {
           const response = await userService.register(this.state.data);
-          localStorage.setItem('token', response.headers['x-auth-token']);
+          auth.loginWithJwt(response.headers['x-auth-token']);
           this.props.history.replace("/movies")
         } catch (ex) {
           if (ex.response && ex.response.status === 400) {
