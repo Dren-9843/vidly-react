@@ -3,8 +3,8 @@ import { NavLink, Link } from 'react-router-dom';
 import '../styles.css'
 
 const NavBar = ({ user }) => {
-  
-
+console.log("Navbar User")
+console.log(user)
     return ( 
         <nav class="navbar" className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <Link className="navbar-brand" to="/movies">Magenta Box</Link>
