@@ -32,13 +32,13 @@ class App extends Component {
     <NavBar user={this.state.user}/>
     <main className="container">
     <Switch>
-      <Route path="/login" component={LoginForm}/>
-      <Route path="/logout" component={Logout}/>
       <Route path="/movies/:id" component={MovieForm}/>
       <Route path="/movies" component={Movies}></Route>
       <Route path="/customers" component={Customers}></Route>
       <Route path="/rentals" component={Rentals}></Route>
+      <Route path="/logout" component={Logout}/>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/login" component={LoginForm}/>
       <Route path="/register" component={Register}></Route>
       <Route path="/not-found" component={NotFound}></Route>
       <Redirect from="/" exact to="/movies"/>
@@ -51,3 +51,4 @@ class App extends Component {
 }
  
 export default App;
+

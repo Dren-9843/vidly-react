@@ -92,6 +92,7 @@ class Movies extends Component {
 
     }
 
+
     render() { 
 
         const { length: count } = this.state.movies;
@@ -121,8 +122,7 @@ class Movies extends Component {
               </Link>
 
 
-
-        <p>Showing {totalCount} movies in the database</p>
+        <p>{totalCount} movies showing </p>
         <SearchBox value={searchQuery} onChange={this.handleSearch}/>
         <MoviesTable 
           movies={movies} 

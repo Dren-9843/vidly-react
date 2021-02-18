@@ -1,6 +1,6 @@
 import React from 'react';
 // import Input from './common/input';
-import * as auth from '../services/authServices'
+import * as auth from '../services/authService'
 import Joi from 'joi-browser'
 import Form from './common/form'
 import * as userService from '../services/userService'
