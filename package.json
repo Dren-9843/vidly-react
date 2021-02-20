@@ -25,6 +25,10 @@
     "react-tooltip": "^4.2.14",
     "web-vitals": "^0.2.4"
   },
+
+  "engines" : { 
+    "node" : "0.12"
+   }, 
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
