@@ -123,7 +123,7 @@ class Movies extends Component {
               </Link>)}
 
 
-        <p>{totalCount} movies showing </p>
+        <p>{totalCount} movies showing in the Database</p>
         <SearchBox value={searchQuery} onChange={this.handleSearch}/>
         <MoviesTable 
           movies={movies} 
