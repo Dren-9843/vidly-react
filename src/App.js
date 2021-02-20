@@ -9,13 +9,13 @@ import Rentals from './components/rentals';
 import NotFound from './components/notFound';
 import Profile from './components/profile';
 import NavBar from './components/navBar';
-import MovieForm from './components/movieForm';
 import Register from './components/registerForm';
 import LoginForm from "./components/loginForm";
 import ProtectedRoute from './components/common/protectedRoute';
 import { getCurrentUser } from './services/authService';
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
+import MovieForm from './components/movieForm';
 
 
 class App extends Component {
